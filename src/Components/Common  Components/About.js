@@ -11,7 +11,7 @@ export default function About() {
 
             <div className="row">
               <div className="col-lg-6 order-1 order-lg-2" data-aos="fade-left" data-aos-delay="100">
-                <img src="assets/img/carousel-2.jpg" style={{borderRadius:"10px"}} className="img-fluid" alt="" />
+                <img src="/assets/img/carousel-1.jpg" style={{borderRadius:"10px"}} className="img-fluid" alt="" />
               </div>
               <div className="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content">
                 <h3>About Our House Staffing Service</h3>

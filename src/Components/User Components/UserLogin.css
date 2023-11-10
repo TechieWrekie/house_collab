@@ -11,7 +11,7 @@
 
 /* UserLogin.css */
 .card-body-with-margin {
-   margin-top: -35px;
+   margin-top: -60px;
     /* Adjust the value as needed */
 }
 
@@ -27,3 +27,4 @@
         border-bottom-right-radius: .3rem;
     }
 }
+

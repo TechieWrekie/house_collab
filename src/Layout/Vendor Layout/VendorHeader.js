@@ -1,7 +1,15 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
+import {Link, useNavigate} from 'react-router-dom'
+import { toast } from 'react-toastify'
 
 export default function VendorHeader() {
+  const nav = useNavigate()
+  const logout = ()=>{
+    sessionStorage.clear();
+    toast.success("Logout Successfully")
+    nav('/userlogin')
+
+  }
   return (
     <>
     {/* ======= Header ======= */}
@@ -16,14 +24,20 @@ export default function VendorHeader() {
         <nav id="navbar" className="navbar order-last order-lg-0">
           <ul>
             <li>
-              <Link className='px-4 mx-2' to="/vendor">Vendor Home</Link>
+              <Link className='px-4 mx-2' to="/vendor">Home</Link>
             </li>
             <li>
-              <Link className='px-4 mx-2' to="/vendor/customers">Customers</Link>
+              <Link className='px-4 mx-2' to="/vendor/about">About</Link>
             </li>
             <li>
-              <Link className='px-4 mx-2' to="/vendor/subservices">Sub Services</Link>
-            </li>
+                <div className="dropdown">
+                  <Link className='px-4 mx-2'>Sub Services <i className="bi bi-caret-down-fill"></i></Link>
+                  <ul className="dropdown-menu">
+                    <li><Link to="/vendor/addsubservice" className="dropdown-item" >Add Sub-Service</Link></li>
+                    <li><Link to="/vendor/managesubservice" className="dropdown-item" >Manage Sub-Services</Link></li>
+                  </ul>
+                </div>
+              </li>
             <li>
               <Link className='px-4 mx-2' to="/vendor/bookings">Bookings</Link>
             </li>
@@ -39,8 +53,8 @@ export default function VendorHeader() {
           <i className='bx bxs-user'></i>
           </button>
           <ul className="dropdown-menu">
-            <li><Link to="/vendor/login" className="dropdown-item">Profile</Link></li>
-            <li><a className="dropdown-item" >Logout</a></li>
+            <li><Link to="/vendor/profile" className="dropdown-item">Profile</Link></li>
+            <li><a className="dropdown-item" onClick={logout} >Logout</a></li>
           </ul>
         </div>
 

@@ -36,6 +36,7 @@ export default function Header() {
               Login
             </button>
             <ul className="dropdown-menu">
+              <li><Link to="/adminlogin" className="dropdown-item">Admin</Link></li>
               <li><Link to="/userlogin" className="dropdown-item">User</Link></li>
               <li><Link to="/vendorlogin" className="dropdown-item">Vendor</Link></li>
             </ul>

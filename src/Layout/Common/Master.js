@@ -7,7 +7,7 @@ export default function Master() {
   return (
     <>
     <Header/>
-    <div className=' outletmargin'>
+    <div className=' outletmargin' style={{minHeight:"100vh"}}>
     <Outlet/>
     </div>
     <Footer/>

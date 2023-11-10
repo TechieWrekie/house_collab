@@ -1,7 +1,14 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
-
+import { Link, useNavigate } from 'react-router-dom'
+import { toast } from 'react-toastify'
 export default function AdminHeader() {
+  const nav = useNavigate()
+  const logout = () => {
+    sessionStorage.clear();
+    toast.success("Logout Successfully")
+    nav('/userlogin')
+
+  }
   return (
     <>
       {/* ======= Header ======= */}
@@ -16,13 +23,25 @@ export default function AdminHeader() {
           <nav id="navbar" className="navbar order-last order-lg-0">
             <ul>
               <li>
-                <Link className='px-4 mx-2' to="/admin">Admin Home</Link>
+                <Link className='px-4 mx-2' to="/admin">Dashboard</Link>
               </li>
               <li>
-                <Link className='px-4 mx-2' to="/admin/services">Admin Services</Link>
+                <Link className='px-4 mx-2' to="/admin/customers">Customers</Link>
               </li>
               <li>
-                <Link className='px-4 mx-2' to="/admin/about">About</Link>
+                <div className="dropdown">
+                  <Link className='px-4 mx-2'>Manage Services <i className="bi bi-caret-down-fill"></i></Link>
+                  <ul className="dropdown-menu">
+                    <li><Link to="/admin/addservice" className="dropdown-item" >Add Service</Link></li>
+                    <li><Link to="/admin/manageservices" className="dropdown-item" >Manage Services</Link></li>
+                  </ul>
+                </div>
+              </li>
+              <li>
+                <Link className='px-4 mx-2' to="/admin/vendors">Vendors</Link>
+              </li>
+              <li>
+                <Link className='px-4 mx-2' to="/admin/viewbookings">Bookings</Link>
               </li>
               <li>
                 <Link className='px-4 mx-2' to="/admin/contact">Contact Us</Link>
@@ -33,11 +52,11 @@ export default function AdminHeader() {
 
           <div className="dropdown">
             <button className="get-started-btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-            <i className='bx bxs-user'></i>
+              <i className='bx bxs-user'></i>
             </button>
             <ul className="dropdown-menu">
-            <li><a className="dropdown-item" >Logout</a></li>
-          </ul>
+              <li><a className="dropdown-item" onClick={logout} >Logout</a></li>
+            </ul>
           </div>
 
         </div>

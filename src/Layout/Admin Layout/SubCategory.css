@@ -1,0 +1,10 @@
+/* Add this CSS in your component's CSS file or in a global CSS file */
+.custom-dropdown-menu {
+    max-height: 200px; /* Set the maximum height you desire */
+    overflow-y: auto;
+  }
+  
+.cardPosition{
+    margin-top: 6px;
+    
+}
