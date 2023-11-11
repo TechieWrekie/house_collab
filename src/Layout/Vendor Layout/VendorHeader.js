@@ -7,7 +7,7 @@ export default function VendorHeader() {
   const logout = ()=>{
     sessionStorage.clear();
     toast.success("Logout Successfully")
-    nav('/userlogin')
+    nav('/vendorlogin ')
 
   }
   return (

@@ -19,7 +19,7 @@ export default function VendorProfile() {
     console.log(userdata._id)
 
 
-
+    const filterservicedata = servicedata.filter(element=>element.status !== false)
 
     const nav = useNavigate();
 
@@ -264,9 +264,9 @@ export default function VendorProfile() {
                                                 <div className="col-md-6 mb-4 pb-2">
 
                                                     <div className="form-outline">
-                                                        <select className="form-select" aria-label="Default select example" value={vendordata?.serviceId?.name} onChange={(e) => { setserviceId(e.target.value) }}>
-                                                            <option selected disabled>{vendordata?.serviceId?.name}</option>
-                                                            {servicedata?.map((e, index) => {
+                                                        <select className="form-select" aria-label="Default select example"  onChange={(e) => { setserviceId(e.target.value) }}>
+                                                            <option selected disabled>Choose your service</option>
+                                                            {filterservicedata?.map((e, index) => {
                                                                 return <option key={index} value={e?._id}>{e?.name}</option>
                                                             })}
                                                         </select>

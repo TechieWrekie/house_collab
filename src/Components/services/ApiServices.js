@@ -1,7 +1,7 @@
 import * as qs from 'qs';
 import axios from 'axios';
 
-const BASE_URL = "http://127.0.0.1:3004/api";
+const BASE_URL = "https://odd-jade-cricket-sock.cyclic.app/api";
 
 const axiosInstance = axios.create({
     baseURL: BASE_URL,
@@ -54,7 +54,7 @@ class ApiServices {
     }
 
     vendorall(data) {
-        return axiosInstance.post("/vendor/all",data);
+        return axiosInstance.post("/vendor/all",qs.stringify(data));
     }
 
     changevendorstatus(data) {
