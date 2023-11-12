@@ -20,7 +20,7 @@ export default function AdminHeader() {
           {/* Uncomment below if you prefer to use an image logo */}
           {/* <Link to="/" className="logo me-auto"><img src="assets/img/logo.png" alt="" className="img-fluid" /></Link> */}
 
-          <nav id="navbar" className="navbar order-last order-lg-0">
+          <nav id="navbar" className="navbar navbar-expand-lg order-last order-lg-0">
             <ul>
               <li>
                 <Link className='px-4 mx-2' to="/admin">Dashboard</Link>
