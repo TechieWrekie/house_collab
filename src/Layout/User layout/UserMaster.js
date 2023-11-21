@@ -16,7 +16,7 @@ export default function UserMaster() {
       <div style={{minHeight:"70vh"}}>
       <Outlet />
       </div>
-      <Footer />
+      <Footer/>
     </>
   )
 }

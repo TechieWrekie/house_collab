@@ -1,4 +1,5 @@
 import React, {useEffect} from 'react'
+import { Link } from 'react-router-dom'
 
 export default function Homepage() {
 
@@ -10,7 +11,7 @@ export default function Homepage() {
         <div className="container position-relative " data-aos="zoom-in" data-aos-delay="100">
           <h1>Best House,<br />Staffing Services</h1>
           <h2>Here you will get the professional and appropriate person according to the work you want to be done.</h2>
-          <a href="/#" className="btn-get-started">Get Started</a>
+          <Link to="/userlogin" className="btn-get-started">Get Started</Link>
         </div>
       </section>{/* End Hero */}
       </div>

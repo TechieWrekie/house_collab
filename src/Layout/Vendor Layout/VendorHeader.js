@@ -61,7 +61,7 @@ export default function VendorHeader() {
                 <NavLink className='px-4 mx-2 nav-link' style={Navstyle} exact to="/vendor/contact">Contact Us</NavLink>
               </li>
             </ul>
-            <div className="dropdown" style={{ marginTop: "3px", marginRight: "60px" }}>
+            <div className="dropdown" style={{marginLeft:"23px"}}>
           <button className="get-started-btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
             <i className='bx bxs-user'></i>
           </button>
