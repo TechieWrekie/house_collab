@@ -16,15 +16,19 @@ export default function AddService() {
     data.append("service_image", image)
     ApiServices.addService(data).then(
       (res)=>{
-        // console.log(res)
+        // console.log(res.data.message)
+        
         if(name && image){
           toast.success(res.data.message)
         nav('/admin/manageservices')
+        }else{
+          toast.error(res.data.message)
         }
 
       }
     ).catch(
       (err)=>{
+        console.log(err)
         toast.error(err.data.message)
       }
     )
@@ -52,7 +56,7 @@ export default function AddService() {
         </div>
         <div className="mb-3">
           <label htmlFor="file" className="form-label">Upload Image</label>
-          <input type="file" className="form-control" id="file" onChange={(e)=>{handleImage(e)}}/>
+          <input type="file" className="form-control" id="file" onChange={(e)=>{handleImage(e)}} required/>
         </div>
         <button type="submit" className="btn btn-primary" onClick={handleAddService}>Submit</button>
       </form>

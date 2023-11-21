@@ -1,65 +1,80 @@
 import React from 'react'
-import {Link, useNavigate} from 'react-router-dom'
+import { Link, NavLink, useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
 
 export default function VendorHeader() {
   const nav = useNavigate()
-  const logout = ()=>{
+  const logout = () => {
     sessionStorage.clear();
     toast.success("Logout Successfully")
     nav('/vendorlogin ')
 
   }
+  const Navstyle = ({ isActive }) => {
+    return {
+      color: isActive ? '#5FCF80' : '',
+      fontWeight: isActive ? 'bold' : '',
+      cursor: 'pointer',
+      backgroundColor:'#F8F9FA'
+    }
+  }
   return (
     <>
-    {/* ======= Header ======= */}
-    <header id="header" className="fixed-top ">
-      <div className="container d-flex align-items-center">
-        <h1 className="logo me-auto">
-          <Link to="/vendor">House Collab </Link>
-        </h1>
-        {/* Uncomment below if you prefer to use an image logo */}
-        {/* <Link to="/" className="logo me-auto"><img src="assets/img/logo.png" alt="" className="img-fluid" /></Link> */}
-
-        <nav id="navbar" className="navbar navbar-expand-lg order-last order-lg-0">
-          <ul>
-            <li>
-              <Link className='px-4 mx-2' to="/vendor">Home</Link>
-            </li>
-            <li>
-              <Link className='px-4 mx-2' to="/vendor/about">About</Link>
-            </li>
-            <li>
-                <div className="dropdown">
-                  <Link className='px-4 mx-2'>Sub Services <i className="bi bi-caret-down-fill"></i></Link>
-                  <ul className="dropdown-menu">
-                    <li><Link to="/vendor/addsubservice" className="dropdown-item" >Add Sub-Service</Link></li>
-                    <li><Link to="/vendor/managesubservice" className="dropdown-item" >Manage Sub-Services</Link></li>
-                  </ul>
-                </div>
+      <nav className="navbar fixed-top navbar-expand-lg bg-body-tertiary nav-font">
+        <div className="container-fluid">
+          {/* Logo on the left side */}
+          <h1 className="logo">
+            <NavLink exact to="/vendor">House Collab</NavLink>
+          </h1>
+          <button
+            className="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span className="navbar-toggler-icon"></span>
+          </button>
+          <div className="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
+              <li className="nav-item">
+                <NavLink className='px-4 mx-2 nav-link' style={Navstyle} exact to="/vendor/home">Home</NavLink>
               </li>
-            <li>
-              <Link className='px-4 mx-2' to="/vendor/bookings">Bookings</Link>
-            </li>
-            <li>
-              <Link className='px-4 mx-2' to="/vendor/contact">Contact Us</Link>
-            </li>
-          </ul>
-          <i className="bi bi-list mobile-nav-toggle"></i>
-        </nav>{/* .navbar */}
-
-        <div className="dropdown">
+              <li className="nav-item">
+                <NavLink className='px-4 mx-2 nav-link' style={Navstyle} exact to="/vendor/about">About</NavLink>
+              </li>
+              <li className="nav-item dropdown">
+                <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Sub-Services
+                </a>
+                <ul className="dropdown-menu" aria-labelledby="navbarDropdown" style={{backgroundColor:'#F8F9FA'}} >
+                  <li><NavLink exact to="/vendor/addsubservice" style={Navstyle} className="dropdown-item" >Add Sub-Services</NavLink></li>
+                  <li><NavLink exact to="/vendor/managesubservice" style={Navstyle} className="dropdown-item" >Manage Sub-Services</NavLink></li>
+                </ul>
+              </li>
+              <li className="nav-item">
+                <NavLink className='px-4 mx-2 nav-link' style={Navstyle} exact to="/vendor/bookings">Bookings</NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink className='px-4 mx-2 nav-link' style={Navstyle} exact to="/vendor/contact">Contact Us</NavLink>
+              </li>
+            </ul>
+            <div className="dropdown" style={{ marginTop: "3px", marginRight: "60px" }}>
           <button className="get-started-btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-          <i className='bx bxs-user'></i>
+            <i className='bx bxs-user'></i>
           </button>
           <ul className="dropdown-menu">
-            <li><Link to="/vendor/profile" className="dropdown-item">Profile</Link></li>
+            <li><NavLink exact to="/vendor/profile" style={Navstyle} className="dropdown-item">Profile</NavLink></li>
             <li><a className="dropdown-item" onClick={logout} >Logout</a></li>
           </ul>
+
+        </div>
+          </div>
         </div>
 
-      </div>
-    </header>{/* End Header */}
-  </>
+      </nav>
+    </>
   )
 }

@@ -9,9 +9,11 @@
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
+
+
 body {
 
-  font-family: "Open Sans", sans-serif;
+  font-family: "Open Sans", sans-serif !important;
   color: #444444;
 }
 .disable-screen{
@@ -54,6 +56,11 @@ h6 {
   border-radius: 50px;
   transition: all 0.4s;
 }
+.nav-font{
+  font-family: "Open Sans", sans-serif !important;
+  color: #444444;
+}
+
 
 .back-to-top i {
   font-size: 28px;
@@ -181,7 +188,7 @@ h6 {
 /**
 * Desktop Navigation 
 */
-.navbar {
+/* .navbar {
   padding: 0;
 }
 
@@ -289,12 +296,12 @@ h6 {
   .navbar .dropdown .dropdown:hover>ul {
     left: -100%;
   }
-}
+} */
 
 /**
 * Mobile Navigation 
 */
-.mobile-nav-toggle {
+/* .mobile-nav-toggle {
   color: #37423b;
   font-size: 28px;
   cursor: pointer;
@@ -399,7 +406,7 @@ h6 {
 
 .navbar-mobile .dropdown>.dropdown-active {
   display: block;
-}
+} */
 
 /*--------------------------------------------------------------
 # Hero Section
@@ -558,6 +565,7 @@ h6 {
   letter-spacing: 1px;
   text-transform: uppercase;
   font-family: "Poppins", sans-serif;
+  color: green;
 }
 
 #header .logo a {
@@ -602,7 +610,7 @@ h6 {
 /**
 * Desktop Navigation 
 */
-.navbar {
+/* .navbar {
   padding: 0;
 }
 
@@ -710,12 +718,12 @@ h6 {
   .navbar .dropdown .dropdown:hover>ul {
     left: -100%;
   }
-}
+} */
 
 /**
 * Mobile Navigation 
 */
-.mobile-nav-toggle {
+/* .mobile-nav-toggle {
   color: #37423b;
   font-size: 28px;
   cursor: pointer;
@@ -820,7 +828,7 @@ h6 {
 
 .navbar-mobile .dropdown>.dropdown-active {
   display: block;
-}
+} */
 
 /*--------------------------------------------------------------
 # Hero Section
@@ -1492,7 +1500,7 @@ section {
   margin-bottom: 0;
 }
 
-@media (max-width: 992px) {
+/* @media (max-width: 992px) {
   .cource-details-tabs .nav-link {
     border: 0;
     padding: 15px;
@@ -1502,7 +1510,7 @@ section {
     color: #fff;
     background: #5fcf80;
   }
-}
+} */
 
 /*--------------------------------------------------------------
 # Events
@@ -2474,7 +2482,7 @@ section {
   border: 0;
 }
 
-.cource-details-tabs .nav-link {
+/* .cource-details-tabs .nav-link {
   border: 0;
   padding: 12px 15px 12px 0;
   transition: 0.3s;
@@ -2483,16 +2491,16 @@ section {
   border-right: 2px solid #e2e7e4;
   font-weight: 600;
   font-size: 15px;
-}
+} */
 
-.cource-details-tabs .nav-link:hover {
+/* .cource-details-tabs .nav-link:hover {
   color: #5fcf80;
-}
+} */
 
-.cource-details-tabs .nav-link.active {
+/* .cource-details-tabs .nav-link.active {
   color: #5fcf80;
   border-color: #5fcf80;
-}
+} */
 
 .cource-details-tabs .tab-pane.active {
   animation: fadeIn 0.5s ease-out;
@@ -3021,4 +3029,8 @@ section {
   background: #3ac162;
   color: #fff;
   text-decoration: none;
+}
+
+.nav-link:hover{
+  color: #5FCF80;
 }

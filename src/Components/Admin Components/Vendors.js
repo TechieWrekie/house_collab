@@ -87,7 +87,7 @@ export default function Vendor() {
                 const formattedDob = format(dobDate, 'MMMM d, yyyy');
                 return (<tr key={index}>
                   <th scope="row">{index + 1}</th>
-                  <td><img src={`http://127.0.0.1:3004/${element.image}`} style={{ widows: "90px", height: "90px" }}></img></td>
+                  <td><img src={element.signedUrl} style={{ widows: "90px", height: "90px" }}></img></td>
                   <td>{element.firstName}</td>
                   <td>{element.lastName}</td>
                   <td>{element.email}</td>

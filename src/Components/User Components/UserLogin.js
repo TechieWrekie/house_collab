@@ -14,9 +14,6 @@ export default function UserLogin() {
   const history = useNavigate();
   const [showPassword, setshowPassword] = useState(false);
 
-  const onChange =(value) =>{
-    console.log("Captcha value:", value);
-  }
 
   const formHandle = (e) => {
     e.preventDefault();

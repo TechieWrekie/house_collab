@@ -1,49 +1,63 @@
+import { hover } from '@testing-library/user-event/dist/hover';
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 export default function Header() {
+  const Navstyle = ({isActive}) =>{
+    return {
+      color:isActive?'#5FCF80':'',
+      fontWeight:isActive?'bold':'',
+      cursor:'pointer',
+    }
+  }
   return (
     <>
-      {/* ======= Header ======= */}
-      <header id="header" className="fixed-top ">
-        <div className="container d-flex align-items-center">
-          <h1 className="logo me-auto">
-            <Link to="/">House Collab </Link>
+      <nav className="navbar fixed-top navbar-expand-lg bg-body-tertiary nav-font">
+        <div className="container-fluid">
+          {/* Logo on the left side */}
+          <h1 className="logo">
+            <NavLink exact to="/">House Collab</NavLink>
           </h1>
-          {/* Uncomment below if you prefer to use an image logo */}
-          {/* <Link to="/" className="logo me-auto"><img src="assets/img/logo.png" alt="" className="img-fluid" /></Link> */}
-
-          <nav id="navbar" className="navbar navbar-expand-lg order-last order-lg-0">
-            <ul>
-              <li>
-                <Link className='px-4 mx-2' to="/">Home</Link>
+          <button
+            className="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span className="navbar-toggler-icon"></span>
+          </button>
+          <div className="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
+              <li className="nav-item">
+                <NavLink className='px-4 mx-2 nav-link' style={Navstyle} exact to="/">Home</NavLink>
               </li>
-              <li>
-                <Link className='px-4 mx-2' to="/services">Services</Link>
+              <li className="nav-item">
+                <NavLink className='px-4 mx-2 nav-link' style={Navstyle} exact to="/services">Services</NavLink>
               </li>
-              <li>
-                <Link className='px-4 mx-2' to="/about">About</Link>
+              <li className="nav-item">
+                <NavLink className='px-4 mx-2 nav-link'style={Navstyle} exact to="/about">About</NavLink>
               </li>
-              <li>
-                <Link className='px-4 mx-2' to="/contact">Contact Us</Link>
+              <li className="nav-item">
+                <NavLink className='px-4 mx-2 nav-link'style={Navstyle} exact to="/contact">Contact Us</NavLink>
               </li>
             </ul>
-            <i className="bi bi-list mobile-nav-toggle"></i>
-          </nav>{/* .navbar */}
-
-          <div className="dropdown">
+            <div className="dropdown"  style={{marginTop:"3px", marginRight: "60px"}}>
             <button className="get-started-btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
               Login
             </button>
             <ul className="dropdown-menu">
-              <li><Link to="/adminlogin" className="dropdown-item">Admin</Link></li>
-              <li><Link to="/userlogin" className="dropdown-item">User</Link></li>
-              <li><Link to="/vendorlogin" className="dropdown-item">Vendor</Link></li>
+              <li><Link exact to="/adminlogin" className="dropdown-item">Admin</Link></li>
+              <li><Link exact to="/userlogin" className="dropdown-item">User</Link></li>
+              <li><Link exact to="/vendorlogin" className="dropdown-item">Vendor</Link></li>
             </ul>
           </div>
-
+          </div>
         </div>
-      </header>{/* End Header */}
+
+      </nav>
     </>
   );
 }

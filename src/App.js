@@ -83,7 +83,7 @@ export default function App() {
 
           {/*Admin Page Routes / AdminMaster Routes*/}
           <Route path="/admin" element={<AdminMaster />}>
-            <Route path="/admin" element={<AdminDashboard />} />
+            <Route path="/admin/home" element={<AdminDashboard />} />
             <Route path="/admin/services" element={<Services />} />
             <Route path="/admin/contact" element={<Contact />} />
             <Route path="/admin/about" element={<About />} />
@@ -102,10 +102,9 @@ export default function App() {
 
           {/*User Page Routes / UserMaster Routes*/}
           <Route path="/user" element={<UserMaster />}>
-            <Route path="/user" element={<Homepage />} />
+            <Route path="/user/home" element={<Homepage />} />
             <Route path="/user/services" element={<Services />} />
             <Route path="/user/contact" element={<UserContact />} />
-
             <Route path="/user/about" element={<About />} />
             <Route path="/user/profile" element={<UserProfile />} />
             <Route path="/user/userviewvendor/:id" element={<UserViewVendor />} />
@@ -120,7 +119,7 @@ export default function App() {
 
           {/*Vendor Page Routes / VendorMaster Routes*/}
           <Route path="/vendor" element={<VendorMaster />}>
-            <Route path="/vendor" element={<VendorDashboard />} />
+            <Route path="/vendor/home" element={<VendorDashboard />} />
             <Route path="/vendor/about" element={<About />} />
             <Route path="/vendor/addsubservice" element={<VendorAddSubService />} />
             <Route path="/vendor/managesubservice" element={<VendorManageSubService />} />

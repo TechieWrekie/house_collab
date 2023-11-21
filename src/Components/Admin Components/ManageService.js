@@ -84,7 +84,7 @@ export default function ManageService() {
                 { filteredData?.map((element, index) => {
                   return (<tr key={index}>
                     <th scope="row">{index + 1}</th>
-                    <th scope="row"><img src={`http://127.0.0.1:3004/${element.image}`} style={{ width: "150px", height: "120px" }}></img></th>
+                    <th scope="row"><img src={element?.signedurl} style={{ width: "150px", height: "120px" }}></img></th>
                     <th scope="row">{element.name}</th>
                     <th scope="row">
 

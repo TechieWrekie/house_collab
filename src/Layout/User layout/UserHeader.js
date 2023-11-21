@@ -1,61 +1,74 @@
-import React from 'react'
-import {Link, useNavigate} from 'react-router-dom'
+import React from 'react';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
-
-
 export default function UserHeader() {
-  const nav = useNavigate()
-  const logout = ()=>{
-    sessionStorage.clear();
-    toast.success("Logout Successfully")
-    nav('/userlogin')
+  const nav = useNavigate();
 
+  const logout = () => {
+    sessionStorage.clear();
+    toast.success("Logout Successfully");
+    nav('/userlogin');
+  };
+  
+  const Navstyle = ({ isActive }) => {
+    return {
+      color: isActive ? '#5FCF80' : '',
+      fontWeight: isActive ? 'bold' : '',
+      cursor: 'pointer',
+    }
   }
   return (
     <>
-    {/* ======= Header ======= */}
-    <header id="header" className="fixed-top ">
-      <div className="container d-flex align-items-center">
-        <h1 className="logo me-auto">
-          <Link to="/user">House Collab </Link>
-        </h1>
-        {/* Uncomment below if you prefer to use an image logo */}
-        {/* <Link to="/" className="logo me-auto"><img src="assets/img/logo.png" alt="" className="img-fluid" /></Link> */}
-
-        <nav id="navbar" className="navbar navbar-expand-lg order-last order-lg-0">
-          <ul>
-            <li>
-              <Link className='px-4 mx-2' to="/user">Home</Link>
-            </li>
-            <li>
-              <Link className='px-4 mx-2' to="/user/about">About</Link>
-            </li>
-            <li>
-              <Link className='px-4 mx-2' to="/user/services">Services</Link>
-            </li>
-            <li>
-              <Link className='px-4 mx-2' to="/user/userbookings">My Bookings</Link>
-            </li>
-            <li>
-              <Link className='px-4 mx-2' to="/user/contact">Contact Us</Link>
-            </li>
-          </ul>
-          <i className="bi bi-list mobile-nav-toggle"></i>
-        </nav>{/* .navbar */}
-
-        <div className="dropdown">
-          <button className="get-started-btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-          <i className='bx bxs-user'></i>
+      <nav className="navbar fixed-top navbar-expand-lg bg-body-tertiary nav-font">
+        <div className="container-fluid">
+          {/* Logo on the left side */}
+          <h1 className="logo">
+            <Link>House Collab</Link>
+          </h1>
+          <button
+            className="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span className="navbar-toggler-icon"></span>
           </button>
-          <ul className="dropdown-menu">
-            <li><Link to="/user/profile" className="dropdown-item">Profile</Link></li>
-            <li><a className="dropdown-item" onClick={logout} >Logout</a></li>
-          </ul>
+          <div className="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
+              <li className="nav-item">
+                <NavLink className='px-4 mx-2 nav-link' style={Navstyle}   exact to='/user/home'  >Home</NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink className='px-4 mx-2 nav-link' style={Navstyle}  to="/user/about" exact>About</NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink className='px-4 mx-2 nav-link' style={Navstyle}  to="/user/services" exact>Services</NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink className='px-4 mx-2 nav-link' style={Navstyle}  to="/user/userbookings" exact>My Bookings</NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink className='px-4 mx-2 nav-link' style={Navstyle}  to="/user/contact" exact>Contact Us</NavLink>
+              </li>
+            </ul>
+            <div className="dropdown" style={{ marginTop: "3px", marginRight: "60px" }}>
+              <button className="get-started-btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <i className='bx bxs-user'></i>
+              </button>
+              <ul className="dropdown-menu">
+                <li><NavLink  to="/user/profile"  className="dropdown-item" exact>Profile</NavLink></li>
+                <li><a className="dropdown-item" onClick={logout} >Logout</a></li>
+              </ul>
+
+            </div>
+          </div>
         </div>
 
-      </div>
-    </header>{/* End Header */}
-  </>
-  )
+      </nav>
+    </>
+  );
 }

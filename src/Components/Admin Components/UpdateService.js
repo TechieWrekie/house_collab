@@ -56,7 +56,7 @@ UpdateService() {
           setTimeout(() => {
             console.log(res)
           setdata(res.data.data)
-          setprevImage(`http://127.0.0.1:3004/${res.data.data?.image}`)
+          setprevImage(res.data.data.signedUrl)
           setserviceName(res.data.data?.name)
           setload(false)
           }, 2000);

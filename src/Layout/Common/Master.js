@@ -7,9 +7,9 @@ export default function Master() {
   return (
     <>
     <Header/>
-    <div className=' outletmargin' style={{minHeight:"100vh"}}>
+    {/* <div className=' outletmargin' style={{minHeight:"100vh"}}> */}
     <Outlet/>
-    </div>
+    {/* </div> */}
     <Footer/>
     </>
   )
