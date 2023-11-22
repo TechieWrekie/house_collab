@@ -121,10 +121,10 @@ export default function UserRegistration() {
 
                         </div>
 
-                        <div className="col-md-6 mb-4 d-flex align-items-center">
+                        <div className="col-md-6 mb-4 d-flex align-items-center g-0">
 
 
-                          <label className="form-label mx-1" htmlFor="firstName">Gender:</label>
+                          <label className="form-label mx-1 g-0" htmlFor="firstName">Gender:</label>
 
 
 
