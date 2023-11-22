@@ -66,6 +66,7 @@ export default function ViewBookings() {
 
         {/* Table starts from here */}
         <div className='container mt-5'>
+        <div className='table-responsive'>
           <table className='table table-hover'>
             <thead>
               <tr className='table-dark'>
@@ -113,6 +114,7 @@ export default function ViewBookings() {
               })}
             </tbody>
           </table>
+        </div>
         </div>
       </div>
     </>

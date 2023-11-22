@@ -62,12 +62,13 @@ export default function UserBooking() {
     <div className={load == true ? "disable-screen" : ""}>
       <div className='mt-5 pt-5'>
         <div className='container-fluid' style={{ backgroundColor: "#343B5D", height: "70px" }}>
-          <h1 style={{ color: "white", display: "flex", paddingTop: "10px" }}>Manage Service</h1>
+          <h1 style={{ color: "white", display: "flex", paddingTop: "10px" }}>My Bookings</h1>
         </div>
 
 
         {/* Table starts from here */}
         <div className='container mt-5'>
+          <div className='table-responsive'>
           <table className="table  table-hover">
             <thead>
               <tr className='table-dark'>
@@ -118,6 +119,7 @@ export default function UserBooking() {
               })}
             </tbody>
           </table>
+          </div>
         </div>
       </div>
     </div>

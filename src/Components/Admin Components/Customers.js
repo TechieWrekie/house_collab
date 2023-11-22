@@ -61,6 +61,7 @@ export default function Customers() {
 
           {/* Table starts from here */}
           <div className='container mt-5'>
+            <div className='table-responsive'>
             <table className="table  table-hover">
               <thead>
                 <tr className='table-dark'>
@@ -99,6 +100,7 @@ export default function Customers() {
                 })}
               </tbody>
             </table>
+          </div>
           </div>
         </div>
       </div>
