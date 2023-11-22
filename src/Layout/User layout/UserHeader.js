@@ -10,6 +10,14 @@ export default function UserHeader() {
     toast.success("Logout Successfully");
     nav('/userlogin');
   };
+
+  const handleNavbarCollapse = () => {
+    // Close the navbar collapse when a navigation link is clicked
+    const navbar = document.querySelector('.navbar-collapse');
+    if (navbar.classList.contains('show')) {
+      navbar.classList.remove('show');
+    }
+  };
   
   let location = useLocation();
   return (
@@ -34,19 +42,19 @@ export default function UserHeader() {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <NavLink className={`px-4 mx-2 nav-link ${location.pathname === "/user"? 'navstyle':''}`}    exact to='/user'  >Home</NavLink>
+                <NavLink onClick={handleNavbarCollapse} className={`px-4 mx-2 nav-link  ${location.pathname === "/user"? 'navstyle':''}`}    exact to='/user'  >Home</NavLink>
               </li>
               <li className="nav-item">
-                <NavLink className={`px-4 mx-2 nav-link ${location.pathname === "/user/about"? 'navstyle':''}`}   to="/user/about" exact>About</NavLink>
+                <NavLink onClick={handleNavbarCollapse} className={`px-4 mx-2 nav-link  ${location.pathname === "/user/about"? 'navstyle':''}`}   to="/user/about" exact>About</NavLink>
               </li>
               <li className="nav-item">
-                <NavLink className={`px-4 mx-2 nav-link ${location.pathname === "/user/services"? 'navstyle':''}`}   to="/user/services" exact>Services</NavLink>
+                <NavLink onClick={handleNavbarCollapse} className={`px-4 mx-2 nav-link  ${location.pathname === "/user/services"? 'navstyle':''}`}   to="/user/services" exact>Services</NavLink>
               </li>
               <li className="nav-item">
-                <NavLink className={`px-4 mx-2 nav-link ${location.pathname === "/user/userbookings"? 'navstyle':''}`}   to="/user/userbookings" exact>My Bookings</NavLink>
+                <NavLink onClick={handleNavbarCollapse} className={`px-4 mx-2 nav-link  ${location.pathname === "/user/userbookings"? 'navstyle':''}`}   to="/user/userbookings" exact>My Bookings</NavLink>
               </li>
               <li className="nav-item">
-                <NavLink className={`px-4 mx-2 nav-link ${location.pathname === "/user/contact"? 'navstyle':''}`}   to="/user/contact" exact>Contact Us</NavLink>
+                <NavLink onClick={handleNavbarCollapse} className={`px-4 mx-2 nav-link  ${location.pathname === "/user/contact"? 'navstyle':''}`}   to="/user/contact" exact>Contact Us</NavLink>
               </li>
             </ul>
             <div className="dropdown" style={{ marginTop: "3px", marginRight: "60px" }}>
@@ -54,7 +62,7 @@ export default function UserHeader() {
                 <i className='bx bxs-user'></i>
               </button>
               <ul className="dropdown-menu">
-                <li><NavLink  to="/user/profile"  className={`px-2 mx-2 nav-link ${location.pathname === "/user/profile"? 'navstyle':''}`} exact>Profile</NavLink></li>
+                <li><NavLink onClick={handleNavbarCollapse}  to="/user/profile"  className={`px-2 mx-2 nav-link  ${location.pathname === "/user/profile"? 'navstyle':''}`} exact>Profile</NavLink></li>
                 <li><a className="dropdown-item" onClick={logout} >Logout</a></li>
               </ul>
 

@@ -10,6 +10,14 @@ export default function Header() {
       cursor:'pointer',
     }
   }
+
+  const handleNavbarCollapse = () => {
+    // Close the navbar collapse when a navigation link is clicked
+    const navbar = document.querySelector('.navbar-collapse');
+    if (navbar.classList.contains('show')) {
+      navbar.classList.remove('show');
+    }
+  };
   return (
     <>
       <nav className="navbar fixed-top navbar-expand-lg bg-body-tertiary nav-font">
@@ -32,16 +40,16 @@ export default function Header() {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <NavLink className='px-4 mx-2 nav-link' style={Navstyle} exact to="/">Home</NavLink>
+                <NavLink onClick={handleNavbarCollapse} className='px-4 mx-2 nav-link' style={Navstyle} exact to="/">Home</NavLink>
               </li>
               <li className="nav-item">
-                <NavLink className='px-4 mx-2 nav-link' style={Navstyle} exact to="/services">Services</NavLink>
+                <NavLink onClick={handleNavbarCollapse} className='px-4 mx-2 nav-link' style={Navstyle} exact to="/services">Services</NavLink>
               </li>
               <li className="nav-item">
-                <NavLink className='px-4 mx-2 nav-link'style={Navstyle} exact to="/about">About</NavLink>
+                <NavLink onClick={handleNavbarCollapse} className='px-4 mx-2 nav-link'style={Navstyle} exact to="/about">About</NavLink>
               </li>
               <li className="nav-item">
-                <NavLink className='px-4 mx-2 nav-link'style={Navstyle} exact to="/contact">Contact Us</NavLink>
+                <NavLink onClick={handleNavbarCollapse} className='px-4 mx-2 nav-link'style={Navstyle} exact to="/contact">Contact Us</NavLink>
               </li>
             </ul>
             <div className="dropdown"   style={{ marginTop:"3px", marginRight: "60px"}}>

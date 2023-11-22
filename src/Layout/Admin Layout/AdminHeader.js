@@ -9,6 +9,14 @@ export default function AdminHeader() {
     toast.success("Logout Successfully")
   }
 
+  const handleNavbarCollapse = () => {
+    // Close the navbar collapse when a navigation link is clicked
+    const navbar = document.querySelector('.navbar-collapse');
+    if (navbar.classList.contains('show')) {
+      navbar.classList.remove('show');
+    }
+  };
+
   let location = useLocation();
   return (
     <>
@@ -32,28 +40,28 @@ export default function AdminHeader() {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <Link className={`px-4 mx-2 nav-link ${location.pathname === "/admin"? 'navstyle':''}`}  exact to="/admin">Dashboard</Link>
+                <Link onClick={handleNavbarCollapse} className={`px-4 mx-2 nav-link ${location.pathname === "/admin"? 'navstyle':''}`}  exact to="/admin">Dashboard</Link>
               </li>
               <li className="nav-item">
-                <Link className={`px-4 mx-2 nav-link ${location.pathname === "/admin/customers"? 'navstyle':''}`}  exact to="/admin/customers">Customers</Link>
+                <Link onClick={handleNavbarCollapse} className={`px-4 mx-2 nav-link ${location.pathname === "/admin/customers"? 'navstyle':''}`}  exact to="/admin/customers">Customers</Link>
               </li>
               <li className="nav-item dropdown">
                 <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   Manage Services
                 </a>
                 <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><Link exact to="/admin/addservice" className={`dropdown-item ${location.pathname === "/admin/addservice"? 'navstyle':''}`} >Add Service</Link></li>
-                  <li><Link exact to="/admin/manageservices" className={`dropdown-item ${location.pathname === "/admin/manageservices"? 'navstyle':''}`} >Manage Services</Link></li>
+                  <li><Link onClick={handleNavbarCollapse} exact to="/admin/addservice" className={`dropdown-item ${location.pathname === "/admin/addservice"? 'navstyle':''}`} >Add Service</Link></li>
+                  <li><Link onClick={handleNavbarCollapse} exact to="/admin/manageservices" className={`dropdown-item ${location.pathname === "/admin/manageservices"? 'navstyle':''}`} >Manage Services</Link></li>
                 </ul>
               </li>
               <li className="nav-item">
-                <Link className={`px-4 mx-2 nav-link ${location.pathname === "/admin/vendors"? 'navstyle':''}`}  exact to="/admin/vendors">Vendors</Link>
+                <Link onClick={handleNavbarCollapse} className={`px-4 mx-2 nav-link ${location.pathname === "/admin/vendors"? 'navstyle':''}`}  exact to="/admin/vendors">Vendors</Link>
               </li>
               <li className="nav-item">
-                <Link className={`px-4 mx-2 nav-link ${location.pathname === "/admin/viewbookings"? 'navstyle':''}`}  exact to="/admin/viewbookings">Bookings</Link>
+                <Link onClick={handleNavbarCollapse} className={`px-4 mx-2 nav-link ${location.pathname === "/admin/viewbookings"? 'navstyle':''}`}  exact to="/admin/viewbookings">Bookings</Link>
               </li>
               <li className="nav-item">
-                <Link className={`px-4 mx-2 nav-link ${location.pathname === "/admin/contact"? 'navstyle':''}`} exact to="/admin/contact">Contact Us</Link>
+                <Link onClick={handleNavbarCollapse} className={`px-4 mx-2 nav-link ${location.pathname === "/admin/contact"? 'navstyle':''}`} exact to="/admin/contact">Contact Us</Link>
               </li>
             </ul>
             <div className="dropdown" style={{ marginTop:"3px", marginRight: "60px"}}>
