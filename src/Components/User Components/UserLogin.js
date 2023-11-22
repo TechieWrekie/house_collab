@@ -33,6 +33,7 @@ export default function UserLogin() {
           if (res.data.data.userType === 1 || res.data.data.userType === 3) {
             sessionStorage.clear();
             toast.warn("No user found")
+            setload(false)
           } else {
             setTimeout(() => {
               sessionStorage.setItem("token", res.data.token);
@@ -45,6 +46,7 @@ export default function UserLogin() {
 
         } else {
           toast.warn(res.data.message);
+          setload(false)
         }
       })
       .catch((err) => {

@@ -41,6 +41,7 @@ export default function UserLogin() {
           
         } else {
           toast.warn(res.data.message);
+          setload(false)
         }
       })
       .catch((err) => {
