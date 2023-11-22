@@ -17,6 +17,8 @@ export default function UserLogin() {
   const history = useNavigate();
 
   const formHandle = (e) => {
+    setload(true);
+
     e.preventDefault();
     const data = {
       email: email,
@@ -25,10 +27,7 @@ export default function UserLogin() {
   
     ApiServices.login(data)
       .then((res) => {
-        if (res.data.success && res.data.data.userType === 3) {
-          setload(true);
-        }
-  
+        
         if (res.data.success && res.data.data.userType === 3) {
           // console.log(res.data.data);
   
