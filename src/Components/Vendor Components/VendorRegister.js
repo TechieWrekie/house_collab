@@ -22,6 +22,7 @@ export default function VendorRegister() {
     }
 
     const handleForm = (data) => {
+        setload(true)
         let data1 = new FormData()
         for(let key in data){
             data1.append(key,data[key])
@@ -32,10 +33,12 @@ export default function VendorRegister() {
             (res) => {
                 toast.success(res.data.message)
                 nav("/vendorlogin")
+                setload(false)
             }
         ).catch(
             (error) => {
                 toast.error(error.data.message)
+                setload(false)
             }
         )
     }

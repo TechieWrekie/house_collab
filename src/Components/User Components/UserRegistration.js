@@ -12,14 +12,17 @@ export default function UserRegistration() {
   const nav = useNavigate()
 
   const handleForm = (data) => {
+    setload(true)
       ApiServices.addcustomer(data).then(
         (res)=>{
           toast.success(res.data.message)
           nav("/userlogin")
+          setload(false)
         }
       ).catch(
         (error)=>{
           toast.error(error.data.message)
+          setload(false)
         }
       )
   }
@@ -121,7 +124,7 @@ export default function UserRegistration() {
                         <div className="col-md-6 mb-4 d-flex align-items-center">
 
 
-                          <label className="form-label mx-4" htmlFor="firstName">Gender:</label>
+                          <label className="form-label mx-1" htmlFor="firstName">Gender:</label>
 
 
 
@@ -150,9 +153,9 @@ export default function UserRegistration() {
                           <div className="form-outline">
                             <input type='tel' defaultValue="" {...register("contact",{pattern:{value: /^\d{10}$/,message:"Enter valid phone number"},required: true })} className='form-control form-control-lg'></input>
                             <label className="form-label" htmlFor="desc">Phone Number</label>
-                        {errors.contact && <span style={{ color: "red" }}>{errors.contact.message}</span>}
 
                           </div>
+                        {errors.contact && <span style={{ color: "red" }}>{errors.contact.message}</span>}
 
                         </div>
                             
