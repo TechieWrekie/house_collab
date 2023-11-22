@@ -89,10 +89,10 @@ export default function Customers() {
                     <td>{element.contact}</td>
                     <td>{element.address}</td>
                     <td>{element.gender}</td>
-                    <td>{element.userId.status == true ? "Active" : "Inactive"}</td>
+                    <td>{element.userId?.status == true ? "Active" : "Inactive"}</td>
                     <td>
-                      <button className='btn btn-outline-success mx-2' disabled={element.userId.status} onClick={() => { handleStatus(element.userId._id, true) }}><i className="bi bi-check-lg"></i></button>
-                      <button className='btn btn-outline-danger mx-2' disabled={!element.userId.status} onClick={() => { handleStatus(element.userId._id, false) }}><i className="bi bi-x-lg"></i></button>
+                      <button className='btn btn-outline-success mx-2' disabled={element.userId?.status} onClick={() => { handleStatus(element.userId._id, true) }}><i className="bi bi-check-lg"></i></button>
+                      <button className='btn btn-outline-danger mx-2' disabled={!element.userId?.status} onClick={() => { handleStatus(element.userId._id, false) }}><i className="bi bi-x-lg"></i></button>
                     </td>
 
                   </tr>)

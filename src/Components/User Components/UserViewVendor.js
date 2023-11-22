@@ -41,7 +41,7 @@ export default function UserViewVendor() {
                     {data.map((e, index) => {
                         return (<div key={index} className="col-lg-4 col-md-6 d-flex align-items-stretch my-3">
                             <div className="course-item">
-                                <img src={"http://127.0.0.1:3004/" + e?.image} style={{height:"190px", width:"320px"}} className="img-fluid" alt="..." />
+                                <img src={e?.signedUrl} style={{height:"190px", width:"320px"}} className="img-fluid" alt="..." />
                                 <div className="course-content ">
                                         <h2>{e?.firstName+""+e?.lastName}</h2>
                                     <div className="d-flex justify-content-between align-items-center mb-3 ">

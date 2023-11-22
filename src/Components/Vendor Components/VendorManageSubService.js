@@ -10,7 +10,7 @@ export default function VendorManageSubService() {
   const vendordata = JSON.parse(vendordatastring)
   const vendorId = vendordata._id
   
-  const [serviceId, setserviceId] = useState('');
+  const [serviceId, setserviceId] = useState(null);
   const [load, setload] = useState(true);
   const [data, setdata] = useState([]);
   
@@ -36,7 +36,7 @@ export default function VendorManageSubService() {
     }
     ApiServices.vendorsingle(data).then(
       (res)=>{
-        setserviceId(res.data.data.serviceId._id)
+        setserviceId(res.data.data.serviceId?._id)
       }
     )
   }
@@ -67,7 +67,7 @@ export default function VendorManageSubService() {
           setload(false)
         }
       )
-    },[load]
+    },[serviceId]
   )
 
   const obj ={
@@ -111,7 +111,7 @@ export default function VendorManageSubService() {
                 
                 return (<tr key={index}>
                   <th scope="row">{index + 1}</th>
-                  <th scope="row"><img src={`http://127.0.0.1:3004/${element.image}`} style={{ width: "150px", height: "120px" }}></img></th>
+                  <th scope="row"><img src={element?.signedUrl} style={{ width: "150px", height: "120px" }}></img></th>
                   <th scope="row">{element.name}</th>
                   <th scope="row">{element.description}</th>
                   <th scope="row">{element.price}</th>

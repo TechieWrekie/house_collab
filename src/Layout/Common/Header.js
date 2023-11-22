@@ -44,7 +44,7 @@ export default function Header() {
                 <NavLink className='px-4 mx-2 nav-link'style={Navstyle} exact to="/contact">Contact Us</NavLink>
               </li>
             </ul>
-            <div className="dropdown"  style={{marginLeft:"23px"}}>
+            <div className="dropdown"   style={{ marginTop:"3px", marginRight: "60px"}}>
             <button className="get-started-btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
               Login
             </button>

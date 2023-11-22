@@ -1,30 +1,22 @@
 import React from 'react'
-import { NavLink, useNavigate } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
 export default function AdminHeader() {
   const nav = useNavigate()
   const logout = () => {
     sessionStorage.clear();
+    nav('/adminlogin')
     toast.success("Logout Successfully")
-    nav('/userlogin')
-
   }
 
-  const Navstyle = ({ isActive }) => {
-    return {
-      color: isActive ? '#5FCF80' : '',
-      fontWeight: isActive ? 'bold' : '',
-      cursor: 'pointer',
-      backgroundColor:'#F8F9FA'
-    }
-  }
+  let location = useLocation();
   return (
     <>
       <nav className="navbar fixed-top navbar-expand-lg bg-body-tertiary nav-font">
         <div className="container-fluid">
           {/* Logo on the left side */}
           <h1 className="logo active">
-            <NavLink exact to="/">House Collab</NavLink>
+            <Link exact to="/">House Collab</Link>
           </h1>
           <button
             className="navbar-toggler"
@@ -40,28 +32,28 @@ export default function AdminHeader() {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <NavLink className='px-4 mx-2 nav-link' style={Navstyle} exact to="/admin/home">Dashboard</NavLink>
+                <Link className={`px-4 mx-2 nav-link ${location.pathname === "/admin"? 'navstyle':''}`}  exact to="/admin">Dashboard</Link>
               </li>
               <li className="nav-item">
-                <NavLink className='px-4 mx-2 nav-link' style={Navstyle} exact to="/admin/customers">Customers</NavLink>
+                <Link className={`px-4 mx-2 nav-link ${location.pathname === "/admin/customers"? 'navstyle':''}`}  exact to="/admin/customers">Customers</Link>
               </li>
               <li className="nav-item dropdown">
                 <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   Manage Services
                 </a>
                 <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><NavLink exact to="/admin/addservice" style={Navstyle} className="dropdown-item" >Add Service</NavLink></li>
-                  <li><NavLink exact to="/admin/manageservices" style={Navstyle} className="dropdown-item" >Manage Services</NavLink></li>
+                  <li><Link exact to="/admin/addservice" className={`dropdown-item ${location.pathname === "/admin/addservice"? 'navstyle':''}`} >Add Service</Link></li>
+                  <li><Link exact to="/admin/manageservices" className={`dropdown-item ${location.pathname === "/admin/manageservices"? 'navstyle':''}`} >Manage Services</Link></li>
                 </ul>
               </li>
               <li className="nav-item">
-                <NavLink className='px-4 mx-2 nav-link' style={Navstyle} exact to="/admin/vendors">Vendors</NavLink>
+                <Link className={`px-4 mx-2 nav-link ${location.pathname === "/admin/vendors"? 'navstyle':''}`}  exact to="/admin/vendors">Vendors</Link>
               </li>
               <li className="nav-item">
-                <NavLink className='px-4 mx-2 nav-link' style={Navstyle} exact to="/admin/viewbookings">Bookings</NavLink>
+                <Link className={`px-4 mx-2 nav-link ${location.pathname === "/admin/viewbookings"? 'navstyle':''}`}  exact to="/admin/viewbookings">Bookings</Link>
               </li>
               <li className="nav-item">
-                <NavLink className='px-4 mx-2 nav-link' style={Navstyle} exact to="/admin/contact">Contact Us</NavLink>
+                <Link className={`px-4 mx-2 nav-link ${location.pathname === "/admin/contact"? 'navstyle':''}`} exact to="/admin/contact">Contact Us</Link>
               </li>
             </ul>
             <div className="dropdown" style={{ marginTop:"3px", marginRight: "60px"}}>
@@ -69,8 +61,7 @@ export default function AdminHeader() {
             <i className='bx bxs-user'></i>
           </button>
           <ul className="dropdown-menu">
-            <li><NavLink exact to="/user/profile" style={Navstyle} className="dropdown-item">Profile</NavLink></li>
-            <li><a className="dropdown-item" onClick={logout} >Logout</a></li>
+            <li><a className=" px-2 mx-2 nav-link" onClick={logout} >Logout</a></li>
           </ul>
         </div>
           </div>

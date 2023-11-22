@@ -30,7 +30,7 @@ export default function UserLogin() {
         }
   
         if (res.data.success && res.data.data.userType === 3) {
-          console.log(res.data.data);
+          // console.log(res.data.data);
   
           setTimeout(() => {
             sessionStorage.setItem("token", res.data.token);

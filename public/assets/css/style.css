@@ -3034,3 +3034,9 @@ section {
 .nav-link:hover{
   color: #5FCF80;
 }
+
+.navstyle{
+  font-weight: bold;
+  color: #5FCF80 !important;
+  font-family: Helvetica, Sans-Serif !important;
+}

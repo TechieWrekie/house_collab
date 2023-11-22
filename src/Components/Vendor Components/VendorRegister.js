@@ -86,16 +86,16 @@ export default function VendorRegister() {
                                                         <input type="text" defaultValue="" {...register("firstName", { minLength: 4, required: true })} className="form-control form-control-lg" />
                                                         <label className="form-label" htmlFor="firstName">First Name</label>
                                                     </div>
-                                                    {errors.firstname && <span style={{ color: "red" }}>Minimum 4 characters are valid</span>}
+                                                    {errors.firstName && <span style={{ color: "red" }}>Minimum 4 characters are valid</span>}
 
                                                 </div>
                                                 <div className="col-md-6 mb-4">
 
                                                     <div className="form-outline">
-                                                        <input type="text" defaultValue="" {...register("lastname", { minLength: { value: 4, message: "Minimum 4 characters are valid" }, required: true })} id="lastName" className="form-control form-control-lg" />
+                                                        <input type="text" defaultValue="" {...register("lastName", { minLength: { value: 4, message: "Minimum 4 characters are valid" }, required: true })} id="lastName" className="form-control form-control-lg" />
                                                         <label className="form-label" htmlFor="lastName">Last Name</label>
                                                     </div>
-                                                    {errors.lastname && <span style={{ color: "red" }}>{errors.lastname.message}</span>}
+                                                    {errors.lastName && <span style={{ color: "red" }}>{errors.lastName.message}</span>}
 
                                                 </div>
                                             </div>
@@ -175,10 +175,10 @@ export default function VendorRegister() {
 
                                                     <div className="form-outline">
                                                         <input type='tel' defaultValue="" {...register("contact", { pattern: { value: /^\d{10}$/, message: "Enter valid phone number" }, required: true })} className='form-control form-control-lg'></input>
-                                                        <label className="form-label" htmlFor="desc">Phone Number</label>
 
+                                                        <label className="form-label" htmlFor="desc">Phone Number</label>
                                                     </div>
-                                                    {errors.phone && <span style={{ color: "red" }}>{errors.phone.message}</span>}
+                                                    {errors.contact && <span style={{ color: "red" }}>{errors.contact.message}</span>}
 
                                                 </div>
                                                 <div className="col-md-6 mb-4 pb-2">
@@ -186,9 +186,8 @@ export default function VendorRegister() {
                                                     <div className="form-outline">
                                                         <input type='number' defaultValue="" {...register("aadharNo", { pattern: { value: /^\d{12}$/, message: "Enter valid Aadhar number" }, required: true })} className='form-control form-control-lg'></input>
                                                         <label className="form-label" >Aadhar Number</label>
-
                                                     </div>
-                                                    {errors.aadharnumber && <span style={{ color: "red" }}>{errors.aadharnumber.message}</span>}
+                                                    {errors.aadharNo && <span style={{ color: "red" }}>{errors.aadharNo.message}</span>}
 
                                                 </div>
 
