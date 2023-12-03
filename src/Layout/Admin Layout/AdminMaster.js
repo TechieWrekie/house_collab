@@ -8,7 +8,7 @@ import '../../App.css'
 export default function AdminMaster() {
   const token = sessionStorage.getItem("token")
   if(!token || token == "null" || token == null || token == undefined || token == "undefined"){
-    toast.error("Unauthorized Access")
+    toast.error("Please Login First")
     return <Navigate to="/adminlogin"/>
   }
 

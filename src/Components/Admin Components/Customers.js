@@ -78,6 +78,13 @@ export default function Customers() {
                 </tr>
               </thead>
               <tbody>
+              {data.length === 0 && (
+                    <tr>
+                      <td colSpan="12" className="text-center  fs-3">
+                        No data to show
+                      </td>
+                    </tr>
+                  )}
                 {data?.map((element, index) => {
                   const dobDate = new Date(element.dob)
                   const formattedDob = format(dobDate, 'MMMM d, yyyy');

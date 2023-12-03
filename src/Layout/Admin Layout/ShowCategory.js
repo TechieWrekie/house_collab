@@ -35,6 +35,7 @@ const [CategoryData, setCategoryData] = useState([]);
     <>
       <div className='mt-5 pt-5'>
         <h1 className='text-center fw-bold pt-3'>Categories Data</h1>
+        <div className='table-responsive'>
         <table className="table">
           <thead>
             <tr>
@@ -45,6 +46,13 @@ const [CategoryData, setCategoryData] = useState([]);
             </tr>
           </thead>
           <tbody>
+          {CategoryData.length === 0 && (
+                    <tr>
+                      <td colSpan="12" className="text-center  fs-3">
+                        No data to show
+                      </td>
+                    </tr>
+                  )}
             {CategoryData?.map((e,index)=>{
               return <tr key={index}>
               <th scope="row">{index+1}</th>
@@ -55,6 +63,7 @@ const [CategoryData, setCategoryData] = useState([]);
             })}
           </tbody>
         </table>
+        </div>
       </div>
     </>
   )

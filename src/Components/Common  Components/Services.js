@@ -52,9 +52,9 @@ export default function Services() {
                                 {filteredData.map((e, index) => {
                                     return (<div key={index} className="col-lg-4 col-md-6 d-flex align-items-stretch my-3">
                                         <div className="course-item">
-                                            <img src={e?.signedurl} className="img-fluid" alt="..." />
-                                            <div className="course-content ">
-                                                <div className="d-flex justify-content-between align-items-center mb-3 ">
+                                            <img src={e?.signedurl} className="img-fluid" alt="..." style={{maxWidth:"100%", height:"300px"}}/>
+                                            <div className="course-content " >
+                                                <div className="d-flex justify-content-between align-items-end mb-3" >
                                                     <Link to={"/user/userviewvendor/" + e?._id}>
                                                         <button className='btn btn-lg btn-outline-success '>{e?.name}</button>
                                                     </Link>

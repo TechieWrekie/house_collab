@@ -50,6 +50,7 @@ export default function ViewBookingFeedback() {
 
       {/* Table starts from here */}
       <div className='container mt-5'>
+        <div className='table-responsive'>
         <table className='table table-hover'>
           <thead>
             <tr className='table-dark'>
@@ -60,6 +61,13 @@ export default function ViewBookingFeedback() {
             </tr>
           </thead>
           <tbody>
+          {data.length === 0 && (
+                    <tr>
+                      <td colSpan="12" className="text-center  fs-3">
+                        No data to show
+                      </td>
+                    </tr>
+                  )}
             {data?.map((element, index) => {
                 const formattedcreatedAt = new Date(element?.createdAt).toLocaleDateString('en-US')
               return (
@@ -73,6 +81,7 @@ export default function ViewBookingFeedback() {
             })}
           </tbody>
         </table>
+        </div>
       </div>
     </div>
   </>

@@ -7,7 +7,7 @@ import { toast } from 'react-toastify'
 export default function UserMaster() {
   const token = sessionStorage.getItem("token")
   if(!token || token == "null" || token == null || token == undefined || token == "undefined"){
-    toast.error("Unauthorized Access")
+    toast.warn("Please Login First")
     return <Navigate to="/userlogin"/>
   }
   return (

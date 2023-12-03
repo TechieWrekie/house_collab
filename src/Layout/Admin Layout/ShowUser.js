@@ -30,6 +30,7 @@ export default function ShowUser() {
     <>
       <div className='mt-5 pt-5'>
         <h1 className='text-center fw-bold pt-3'>User Data</h1>
+        <div className='table-responsive'>
         <table className="table">
           <thead>
             <tr>
@@ -40,6 +41,13 @@ export default function ShowUser() {
             </tr>
           </thead>
           <tbody>
+          {displayedUsers.length === 0 && (
+                    <tr>
+                      <td colSpan="12" className="text-center  fs-3">
+                        No data to show
+                      </td>
+                    </tr>
+                  )}
             {displayedUsers?.map((e, index) => (
               <tr key={index}>
                 <th scope="row">{startIndex + index + 1}</th>
@@ -52,6 +60,7 @@ export default function ShowUser() {
             ))}
           </tbody>
         </table>
+        </div>
         <div className="d-flex justify-content-center">
           <nav>
             <ul className="pagination">

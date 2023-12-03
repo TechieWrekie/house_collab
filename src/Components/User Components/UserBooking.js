@@ -87,7 +87,13 @@ export default function UserBooking() {
               </tr>
             </thead>
             <tbody>
-              
+            {bookingData.length === 0 && (
+                    <tr>
+                      <td colSpan="12" className="text-center  fs-3">
+                        No data to show
+                      </td>
+                    </tr>
+                  )}
               { bookingData?.map((element, index) => {
                 const dateString  = new Date(element?.createdAt)
                 const formattedDate = dateString.toLocaleDateString('en-US')

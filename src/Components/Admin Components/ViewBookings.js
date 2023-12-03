@@ -86,6 +86,13 @@ export default function ViewBookings() {
               </tr>
             </thead>
             <tbody>
+            {filteredData.length === 0 && (
+                    <tr>
+                      <td colSpan="12" className="text-center  fs-3">
+                        No data to show
+                      </td>
+                    </tr>
+                  )}
               {filteredData?.map((element, index) => {
                 const formatteddate = new Date(element?.dateOfBooking).toLocaleDateString('en-US')
                 const formattedcreatedAt = new Date(element?.createdAt).toLocaleDateString('en-US')
