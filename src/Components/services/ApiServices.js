@@ -1,7 +1,8 @@
 import * as qs from 'qs';
 import axios from 'axios';
 
-const BASE_URL = "https://odd-jade-cricket-sock.cyclic.app/api";
+// const BASE_URL = "https://odd-jade-cricket-sock.cyclic.app/api";
+const BASE_URL = "https://hc-backend-yd64.onrender.com/api";
 // const BASE_URL = "http://localhost:3000/api";
 
 const axiosInstance = axios.create({
