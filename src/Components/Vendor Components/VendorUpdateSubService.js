@@ -7,10 +7,11 @@ import { useNavigate, useParams } from 'react-router-dom';
 const vendordatastring = sessionStorage.getItem('userData')
 const vendordata = JSON.parse(vendordatastring)
 const vendorId = vendordata?._id
+console.log(vendorId)
 
 
 export default function VendorUpdateSubService() {
-    const [name, setname] = useState();
+    const [name, setname] = useState('');
     const [image, setimage] = useState('');
     const [price, setprice] = useState('');
     const [serviceid, setserviceid] = useState('');
