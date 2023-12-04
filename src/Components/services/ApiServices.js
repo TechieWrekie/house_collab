@@ -75,13 +75,13 @@ class ApiServices {
         return axiosInstance.post('/vendor/single',data)
     }
     showsubservice(data){
-        return axiosInstance.post('/subService/all',data)
+        return axiosInstance.post('/subService/all',qs.stringify(data))
     }
     subserviceupdate(data){
         return axiosInstance.post('/subService/update',data)
     }
     subservicesingle(data){
-        return axiosInstance.post('/subService/single',data)
+        return axiosInstance.post('/subService/single',qs.stringify(data))
     }
     subservicechangestatus(data){
         return axiosInstance.post('/subService/changeStatus',qs.stringify(data))

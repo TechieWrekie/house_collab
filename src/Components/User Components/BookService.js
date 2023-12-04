@@ -31,9 +31,9 @@ export default function BookService() {
 
   const handlesubserviceid = (e) => {
     setselectedsubserviceid(e.target.value)
-    // console.log(selectedsubserviceid)
   }
-
+  console.log(selectedsubserviceid)
+  
   const [load, setload] = useState();
   const obj = {
     position: "absolute",
@@ -55,14 +55,18 @@ export default function BookService() {
   )
   useEffect(
     () => {
-      const data = {
-        _id: selectedsubserviceid
+      if(selectedsubserviceid){
+        const data = {
+          _id: selectedsubserviceid
+        
       }
       ApiServices.subservicesingle(data).then(
         (res) => {
           setsubserviceprice(res.data?.data?.price)
         }
+      
       )
+      }
     }, [selectedsubserviceid]
   )
 

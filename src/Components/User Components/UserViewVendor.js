@@ -37,7 +37,7 @@ export default function UserViewVendor() {
                 </div>
 
                 <div className="row" data-aos="zoom-in" data-aos-delay="100">
-
+                    {data.length == 0 && <h2 className='text-center'>More professionals coming soon. Meanwhile try other services</h2>}
                     {data.map((e, index) => {
                         return (<div key={index} className="col-lg-4 col-md-6 d-flex align-items-stretch my-3">
                             <div className="course-item">
