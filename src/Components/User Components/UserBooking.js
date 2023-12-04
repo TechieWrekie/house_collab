@@ -101,7 +101,7 @@ export default function UserBooking() {
                 const formattedBookingDate = bookingString.toLocaleDateString('en-US')
                 return (<tr key={index}>
                   <th scope="row">{index + 1}</th>
-                  <th scope="row">{element?.vendorId.name}</th>
+                  <th scope="row">{element?.vendorId?.name}</th>
                   <th scope="row">{formattedBookingDate}</th>
                   <th scope="row">{element?.cost}</th>
                   <th scope="row">{element?.subServiceId?.name}</th>
