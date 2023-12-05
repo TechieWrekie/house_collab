@@ -92,7 +92,9 @@ export default function BookService() {
       }
     )
   }
-
+   
+  const filtersubservicedata = subservicedata.filter(item => item.status == true)
+  console.log(filtersubservicedata)
 
   return (
     <>
@@ -121,7 +123,7 @@ export default function BookService() {
 
                           <select className="form-select" style={{ minHeight: "50px" }} onChange={handlesubserviceid} aria-label="Default select example">
                             <option selected disabled required>Choose Vendor Service</option>
-                            {subservicedata?.map((e) => (
+                            { filtersubservicedata?.map((e) => (
                               <option value={e?._id} key={e?._id} >{e?.name}</option >
 
                             ))}
