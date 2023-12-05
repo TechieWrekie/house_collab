@@ -72,7 +72,7 @@ class ApiServices {
         return axiosInstance.post('/subService/add',data)
     }
     vendorsingle(data){
-        return axiosInstance.post('/vendor/single',data)
+        return axiosInstance.post('/vendor/single',qs.stringify(data))
     }
     showsubservice(data){
         return axiosInstance.post('/subService/all',qs.stringify(data))
