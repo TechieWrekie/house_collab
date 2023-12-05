@@ -67,11 +67,11 @@ export default function VendorUpdateSubService() {
             ApiServices.subservicesingle(data).then(
                 (res) => {
                     setTimeout(() => {
-                        console.log(res.data.data.name)
+                        console.log(res.data.data.signedUrl)
                         setname(res.data.data.name)
                         setprice(res.data.data.price)
                         setdescription(res.data.data.description)
-                        setprevImage(`http://127.0.0.1:3004/${res.data.data.image}`)
+                        setprevImage(res.data.data.signedUrl)
                         setserviceid(res.data.data.serviceId._id)
                         setload(false)
                     }, 1500);

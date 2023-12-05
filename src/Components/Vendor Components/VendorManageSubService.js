@@ -15,28 +15,14 @@ export default function VendorManageSubService() {
   const [data, setdata] = useState([]);
 
 
-  const handleStatus = (_id, status) => {
-    setload(true)
-    const data = {
-      _id,
-      status
-    }
-    ApiServices.subservicechangestatus(data).then(
-      (res) => {
-        setTimeout(() => {
-          toast.success(res.data.data)
-          setload(false)
-        }, 1500);
-      }
-    )
-  }
+  
   const serviceid = () => {
     const data = {
       _id: vendorId
     }
     ApiServices.vendorsingle(data).then(
       (res) => {
-        setserviceId(res.data.data.serviceId?._id)
+        setserviceId(res.data.data?.serviceId?._id)
       }
     )
   }
@@ -47,7 +33,7 @@ export default function VendorManageSubService() {
   )
   useEffect(
     () => {
-
+      console.log(serviceId)
       if (serviceId) {
         const data = {
           serviceId,
@@ -74,6 +60,21 @@ export default function VendorManageSubService() {
     }, [serviceId]
   )
 
+  const handleStatus = (_id, status) => {
+    setload(true)
+    const data = {
+      _id,
+      status
+    }
+    ApiServices.subservicechangestatus(data).then(
+      (res) => {
+        setTimeout(() => {
+          toast.success(res.data.data)
+          setload(false)
+        }, 1500);
+      }
+    )
+  }
   const obj = {
     position: "absolute",
     left: "50%",
